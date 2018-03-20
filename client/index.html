@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AccidentReport</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+  
+  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+  <link rel="icon" type="assets/jpg" href="assets/icon_96.jpg">
+
+  <!-- iOS Meta Tags -->
+  <link rel="apple-touch-icon" href="assets/icon_ios_180.png" size="180*180">
+  <link rel="apple-touch-icon" href="assets/icon_ios_120.png" size="120*120">
+  
+  
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap2-toggle.min.css" rel="stylesheet">
+   <!-- <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> -->
+   
+     	    <!-- Custom styles for this template -->
+    <!-- <link href="https://github.com/kulkaman/cardamage/blob/master/src/app/css/damage.css" rel="stylesheet"> -->
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+    
+    <link rel="manifest" href="manifest.json">
+ <!-- <script src="damage.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <script type="text/javascript" src="signature_pad.min.js"></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.22/webcam.min.js"></script>
+  
+
+</head>
+<body style="background-color: #E9E9E9">
+  <app-root>Loading...</app-root>
+<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous">
+    
+    var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
+  	  backgroundColor: 'rgba(255, 255, 255, 0)',
+  	  penColor: 'rgb(0, 0, 0)'
+  	});
+    
+    $('#accordion').on('shown.bs.collapse', '.panel-default', function (e) {
+    	$('html,body').animate({
+    	scrollTop: $(this).offset().top
+    	}, 500); 
+    	});
+    
+    var app = angular.module('app', []);
+
+    app.controller('imgMapCtrl', function($scope, $http) {
+      $scope.auto_parts = [{
+        "shape": "circle",
+        "type": "kolo_przod",
+        "coords": "193,342,68"
+      }, {
+        "shape": "circle",
+        "type": "kolo_tyl",
+        "coords": "743,341,68"
+      }, {
+        "shape": "poly",
+        "type": "okno",
+        "coords": "380,220,494,213,512,149,452,157,421,165,369,192,384,199"
+      }, {
+        "shape": "poly",
+        "type": "okno",
+        "coords": "536,211,692,202,700,173,664,162,599,152,544,149"
+      }, {
+        "shape": "poly",
+        "type": "drzwi",
+        "coords": "301,355,510,354,504,334,510,236,516,213,528,144,462,149,419,162,361,190,300,231,293,253,292,312"
+      }, {
+        "shape": "poly",
+        "type": "drzwi",
+        "coords": "510,352,632,349,702,252,712,211,708,202,716,176,657,156,586,145,528,145,516,213,510,235,504,333"
+      }]
+
+
+      $scope.partClicked = function(arg) {
+        alert(arg + ' clicked');
+      }
+    });
+    
+   //  webView.setWebViewClient(new WebViewClient() {
+    //    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+     //       if (url.contains("tel:")) {
+      //          if (url.startsWith("tel:")) {
+       //             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(url));
+         //           startActivity(intent);
+           //     }
+             //   return true;
+            //}
+       //}
+//});
+    
+    if (window.navigator.standalone == true) {
+    	 document.write('<p>Welcome Home</p>');
+    	 console.log('Hey');
+    	}else{
+    	 document.write('<p>Tap the + button and choose "Add to Home Screen"</p>');
+    	 document.write('<link rel="apple-touch-icon-precomposed" href="icon@2x.png"/>');
+    	 console.log('Hii');
+      }
+      
+      // $('#toggle-one').bootstrapToggle();
+    </script>
+        
+</html>
